@@ -149,6 +149,14 @@
     box-shadow: 0 20px 40px rgba(0,0,0,.6);
   }
   .foto-frame img.foto-real{ width:100%; height:100%; object-fit:cover; object-position: center 20%; border-radius:4px; display:block; }
+  .foto-zoom-hint{
+    position:absolute; bottom:6px; right:6px; z-index:3;
+    width:34px; height:34px; border-radius:50%;
+    background: rgba(0,0,0,.6); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:17px; box-shadow:0 3px 8px rgba(0,0,0,.45);
+    pointer-events:none;
+  }
   .foto-pin{
     position:absolute; top:-16px; left:50%;
     transform: translateX(-50%) rotate(8deg);
@@ -158,7 +166,7 @@
   }
   .foto-pin img{ width:100%; height:100%; }
 
-  .nombres{ font-size:1.5rem; font-family:'Pacifico', cursive; color: var(--dorado); margin:4px 0; }
+  .nombres{ font-size:2.1rem; font-family:'Pacifico', cursive; color: var(--dorado); margin:4px 0; }
   .frase{ font-size:.95rem; opacity:.9; margin-bottom:6px; line-height:1.5; }
   .sticker-inline{ width:92px; margin:8px auto; display:block; filter: drop-shadow(0 5px 8px rgba(0,0,0,.35)); }
 
@@ -245,6 +253,7 @@
         <div class="foto-frame" id="fotoFrame">
           <div class="foto-pin"><img src="https://raw.githubusercontent.com/coloranttivo/Marielita-Julito/main/8.png" alt=""></div>
           <img class="foto-real" id="fotoReal" src="https://raw.githubusercontent.com/coloranttivo/Marielita-Julito/6d0da298f06f2f2c1b6a6f8f69970417590ee596/TITOS.png" alt="Foto de los homenajeados">
+          <div class="foto-zoom-hint">🔍</div>
         </div>
 
         <div class="nombres">Marielita &amp; Julito</div>
@@ -255,7 +264,7 @@
         <div class="dancers"><span>💃</span><span>🕺</span><span>🥤</span><span>🎶</span></div>
 
         <div class="detalles">
-          <div><b>FECHA</b>domingo, 11 de octubre</div>
+          <div><b>FECHA</b>Domingo, 11 de octubre</div>
           <div><b>HORA</b>12 m.</div>
           <div class="full"><b>LUGAR</b>En Avant Chía — Cra. 2 Este # 22-47, Chía, Cundinamarca</div>
         </div>
@@ -264,7 +273,7 @@
         <img class="sticker-inline" src="https://raw.githubusercontent.com/coloranttivo/Marielita-Julito/main/4.png" alt="" style="width:100px;">
 
         <div class="rsvp">Confirma tu asistencia lo antes posible</div>
-        <a class="whatsapp-btn" href="[LINK_DE_WHATSAPP]" target="_blank" rel="noopener">
+        <a class="whatsapp-btn" href="https://wa.link/k2o86v" target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.607 1.905 6.472L4 29l7.72-1.86A11.93 11.93 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.75c-1.94 0-3.762-.55-5.303-1.502l-.38-.226-4.58 1.103 1.127-4.462-.248-.393A9.71 9.71 0 0 1 5.25 15c0-5.93 4.82-10.75 10.751-10.75S26.75 9.07 26.75 15 21.932 24.75 16.001 24.75zm5.981-8.14c-.328-.164-1.94-.957-2.24-1.066-.301-.109-.52-.164-.738.164-.219.328-.848 1.066-1.04 1.285-.191.219-.383.246-.71.082-.328-.164-1.385-.51-2.638-1.626-.975-.869-1.633-1.943-1.824-2.271-.191-.328-.02-.505.144-.668.148-.147.328-.383.492-.574.164-.191.219-.328.328-.547.109-.219.055-.41-.027-.574-.082-.164-.738-1.777-1.012-2.434-.267-.64-.539-.553-.738-.563l-.629-.011c-.219 0-.574.082-.875.41-.301.328-1.148 1.121-1.148 2.734s1.175 3.172 1.339 3.39c.164.219 2.313 3.53 5.605 4.949.783.338 1.393.54 1.869.691.785.25 1.5.215 2.065.13.63-.094 1.94-.793 2.213-1.559.273-.766.273-1.422.191-1.559-.082-.137-.301-.219-.629-.383z"/></svg>
           Confirmar por WhatsApp
         </a>
