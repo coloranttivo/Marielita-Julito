@@ -136,6 +136,17 @@
     border-radius: 8px;
     box-shadow: 0 12px 24px rgba(0,0,0,.4);
     transform: rotate(-3deg);
+    cursor: zoom-in;
+  }
+  .lightbox-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.85);
+    display:none; align-items:center; justify-content:center;
+    z-index:999; padding:24px; cursor:zoom-out;
+  }
+  .lightbox-overlay.show{ display:flex; }
+  .lightbox-overlay img{
+    max-width:92vw; max-height:92vh; border-radius:10px;
+    box-shadow: 0 20px 40px rgba(0,0,0,.6);
   }
   .foto-frame img.foto-real{ width:100%; height:100%; object-fit:cover; object-position: center 20%; border-radius:4px; display:block; }
   .foto-pin{
@@ -213,6 +224,10 @@
     </div>
   </div>
 
+  <div class="lightbox-overlay" id="lightbox">
+    <img id="lightboxImg" src="" alt="Foto ampliada">
+  </div>
+
   <div class="screen-layer" id="inviteLayer" style="display:none;">
     <div id="invite">
       <img class="cap-deco cd1" src="https://raw.githubusercontent.com/coloranttivo/Marielita-Julito/main/8.png" alt="">
@@ -227,9 +242,9 @@
       <div class="invite-inner">
         <h1>Coca-Cola Bailable</h1>
 
-        <div class="foto-frame">
+        <div class="foto-frame" id="fotoFrame">
           <div class="foto-pin"><img src="https://raw.githubusercontent.com/coloranttivo/Marielita-Julito/main/8.png" alt=""></div>
-          <img class="foto-real" src="PEGA_AQUI_TU_FOTO_BASE64_ORIGINAL" alt="Foto de los homenajeados">
+          <img class="foto-real" id="fotoReal" src="https://raw.githubusercontent.com/coloranttivo/Marielita-Julito/6d0da298f06f2f2c1b6a6f8f69970417590ee596/TITOS.png" alt="Foto de los homenajeados">
         </div>
 
         <div class="nombres">Marielita &amp; Julito</div>
@@ -240,7 +255,7 @@
         <div class="dancers"><span>💃</span><span>🕺</span><span>🥤</span><span>🎶</span></div>
 
         <div class="detalles">
-          <div><b>FECHA</b>11 de octubre</div>
+          <div><b>FECHA</b>domingo, 11 de octubre</div>
           <div><b>HORA</b>12 m.</div>
           <div class="full"><b>LUGAR</b>En Avant Chía — Cra. 2 Este # 22-47, Chía, Cundinamarca</div>
         </div>
@@ -273,6 +288,19 @@
   const bottleImg = document.getElementById('bottleImg');
   const bgMusic = document.getElementById('bgMusic');
   let capTapped = false;
+
+  const fotoFrame = document.getElementById('fotoFrame');
+  const fotoReal = document.getElementById('fotoReal');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  fotoFrame.addEventListener('click', () => {
+    lightboxImg.src = fotoReal.currentSrc || fotoReal.src;
+    lightbox.classList.add('show');
+  });
+  lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+  });
 
   function spawnBubbles(n){
     for(let i=0;i<n;i++){
